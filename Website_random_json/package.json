@@ -17,6 +17,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "dummy-json": "^3.0.4",
     "express": "^4.17.2"
   }
 }
