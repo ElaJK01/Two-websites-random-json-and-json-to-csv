@@ -1,8 +1,8 @@
 const dummyjson = require('dummy-json')
 
-function createJson(n) {
+function createJsonList(n) {
   const template = `{
-    "data" = [
+    "data": [
       {{#repeat ${n}}}
       {
     "_type": "{{random "Position"}}",
@@ -13,7 +13,10 @@ function createJson(n) {
     "iata_airport_code": "{{random null 'AAR' 'ADB' 'AEH'}}",
     "type": "{{random "location"}}",
     "country": "{{country}}",
-    "geo_position": "{latitude:{{lat}}, longitude: {{long}}\\}", 
+    "geo_position": {
+      "latitude": {{lat}}, 
+      "longitude": {{long}}
+  }, 
     "location_id": "{{int 10000 50000}}",
     "inEurope": "{{boolean}}",
     "countryCode": "{{countryCode}}",
@@ -24,11 +27,13 @@ function createJson(n) {
   ]
   }`;
   const result = dummyjson.parse(template);
-  return result
+  const obj = JSON.parse(result)
+  
+  return obj
 }
 
 helpers = {
-  createJson
+  createJsonList
 }
 
 module.exports = helpers;
