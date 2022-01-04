@@ -1,4 +1,4 @@
-const dummyjson = require('dummy-json')
+const dummyjson = require('dummy-json');
 
 function createJsonList(n) {
   const template = `{
@@ -27,13 +27,13 @@ function createJsonList(n) {
   ]
   }`;
   const result = dummyjson.parse(template);
-  const obj = JSON.parse(result)
-  
-  return obj
+  const obj = JSON.parse(result);
+
+  return obj;
 }
 
-helpers = {
-  createJsonList
-}
+const helpers = {
+  createJsonList,
+};
 
 module.exports = helpers;
