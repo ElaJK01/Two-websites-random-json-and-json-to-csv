@@ -6,8 +6,7 @@ const port = 3000
 
 app.get('/generate/json/:size', (req, res) => {
   const list_size = req.params.size
-  const myJson = helpers.createJson()
-  console.log(typeof(myJson))
+  const myJson = helpers.createJson(list_size)
   res.send(myJson)
 })
 
