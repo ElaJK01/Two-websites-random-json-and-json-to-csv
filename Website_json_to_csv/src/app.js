@@ -6,7 +6,8 @@ const lib = require('../lib')
 
 app.get('/', async (req, res) => {
   const data = await lib.getData(2)
-  res.send(data)
+  const csv =  await lib.dataToCsv(data)
+  res.send(csv)
 })
 
 app.listen(port, () => {
