@@ -2,9 +2,11 @@
 const express = require('express')
 const app = express()
 const port = 5000
+const lib = require('../lib')
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/', async (req, res) => {
+  const data = await lib.getData(2)
+  res.send(data)
 })
 
 app.listen(port, () => {
