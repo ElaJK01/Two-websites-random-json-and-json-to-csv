@@ -7,10 +7,7 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 const bodyParser = require('body-parser');
 
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// parse application/json
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
@@ -22,7 +19,7 @@ app.post('/', async (req, res) => {
   const fields = ['_type', '_id', 'name', 'type', 'geo_position.latitude', 'geo_position.longitude'];
   const data = await lib.getData(size)
   const csv =  await lib.dataToCsv(data, fields)
-  res.send(csv)
+  return res.send(csv)
 })
 
 app.get('/customdata', (req, res) => {
@@ -30,15 +27,13 @@ app.get('/customdata', (req, res) => {
 })
 
 app.post('/customdata', async (req, res) => {
-  console.log(req.body)
   const size = req.body.size
   const { customData } = req.body
   const makeList = (v) => [].concat(v).map(data => data)
   const dataList = makeList(customData)
   const data = await lib.getData(size)
   const csv =  await lib.dataToCsv(data, dataList)
-  res.send(csv)
-  
+  return res.send(csv)
 })
 
 app.listen(port, () => {

@@ -12,7 +12,7 @@ async function getData(size) {
 
 
 async function dataToCsv(myData, fields) {
-  const json2csvParser = new Parser({ fields });
+  const json2csvParser = new Parser({ header: false, fields });
   const csv = json2csvParser.parse(myData.data);
   return csv
 }
