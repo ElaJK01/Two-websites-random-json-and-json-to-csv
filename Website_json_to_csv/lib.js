@@ -10,8 +10,8 @@ async function getData(size) {
   }
 }
 
-async function dataToCsv(myData) {
-  const fields = ['type', '_id', 'name', 'type', 'geo_position.latitude', 'geo_position.longitude'];
+
+async function dataToCsv(myData, fields) {
   const json2csvParser = new Parser({ fields });
   const csv = json2csvParser.parse(myData.data);
   return csv
