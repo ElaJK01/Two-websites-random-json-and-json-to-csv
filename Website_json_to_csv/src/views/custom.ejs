@@ -1,76 +1,76 @@
 <%- include('../partials/base'); %>
 
   <%- include('../partials/header'); %>
-  <section>
-    <div class="form-container">
+  <section class="main">
+    <div class="form-container-custom">
       <form method="post" action="/customdata">
         <label>Podaj rozmiar oczekiwanych danych json</label>
         <input type="number" name='size' required='true'>
         <fieldset>
           <legend>Wybierz interesujące cię dane:</legend>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="_type" name="customData" value="_type">
             <label for="_type">_type</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="_id" name="customData" value="_id">
             <label for="_id">_id</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="key" name="customData" value="key">
             <label for="key">key</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="name" name="customData" value="name">
             <label for="name">name</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="fullName" name="customData" value="fullName">
             <label for="fullName">fullName</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="iata_airport_code" name="customData" value="iata_airport_code">
             <label for="iata_airport_code">iata_airport_code</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="type" name="customData" value="type">
             <label for="type">type</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="country" name="customData" value="country">
             <label for="country">country</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="geo_position.latitude" name="customData" value="geo_position.latitude">
             <label for="geo_position">geo_position.latitude</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="geo_position.longitude" name="customData" value="geo_position.longitude">
             <label for="geo_position">geo_position.longitude</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="location_id" name="customData" value="location_id">
             <label for="location_id">location_id</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="inEurope" name="customData" value="inEurope">
             <label for="inEurope">inEurope</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="countryCode" name="customData" value="countryCode">
             <label for="countryCode">countryCode</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="coreCountry" name="customData" value="coreCountry">
             <label for="coreCountry">coreCountry</label>
           </div>
-          <div>
+          <div class="checkbox">
             <input type="checkbox" id="distance" name="customData" value="distance">
             <label for="distance">distance</label>
           </div>
         </fieldset>
         
-        <button type="submit">pobierz dane</button>
+        <input type="submit" value="pobierz dane">
       </form>
     </div>
   </section>

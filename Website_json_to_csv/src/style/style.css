@@ -20,7 +20,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   
-    
 }
 
 a {
@@ -36,23 +35,6 @@ a {
   margin-left: 10px;
 }
 
-.nav-div button {
-  width: auto;
-  height: 90%;
-  border-radius: 4%;
-  background-color: transparent;
-  border-color: white;
-  border-style: solid;
-  }
-
-.nav-div button {
-  transition-duration: 0.4s;
-}
-
-.nav-div button:hover {
- background-color: rgb(77, 16, 16);
- border: none;
-}
 
 h1 {
   color:white;
@@ -66,13 +48,70 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(240, 240, 240, 0.986);
-  height: 600px;
+  height: auto;
   width: 600px;
   text-align: center;
+
+}
+
+.form-container-custom {
+  width: 800px;
+  background-color: rgba(240, 240, 240, 0.986);
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.main {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.form-container-custom form {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  
+}
+
+.checkbox:hover input ~ .checkmark {
+  background-color:  rgb(77, 16, 16);
+} 
+
+fieldset {
+  background-color: transparent;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  padding-bottom: 25px;
+}
+
+.checkbox {
+  display: grid;
+  height: 25px;
+  margin-bottom: 15px;
+  grid-template-columns: 100px 100px; 
+  grid-template-rows: 100px;
+  grid-column-gap: 5px;
+}
+
+legend {
+  background-color: rgb(207, 110, 126);
+  color: black;
+  padding: 5px 10px;
+}
+
+input {
+  margin: 5px;
 }
 
 form {
   display: inline-block;
+  
 }
 
 form input, label {
@@ -92,16 +131,16 @@ form label {
 
 form input {
   background-color: rgb(248, 220, 225);
+  font-size: 18px;
 }
 
 input[type=submit] {
   background-color: transparent;
   color: black;
-  padding: 12px 20px;
   border-style: solid;
   border-color: black;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   vertical-align: middle;
   }
@@ -111,7 +150,7 @@ input[type=submit]:hover {
   border:solid;
   border-color: white;
   color: white;
-  font-size: 15px;
+  
 }
 
 form input {
