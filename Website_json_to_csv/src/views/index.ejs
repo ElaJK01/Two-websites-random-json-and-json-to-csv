@@ -2,11 +2,13 @@
 
   <%- include('../partials/header'); %>
   <section>
-    <form method="post" action="/">
-      <label>Podaj rozmiar oczekiwanych danych json</label>
-      <input type="number" name='size' required='true'>
-      <button type="submit">pobierz dane</button>
-    </form>
+    <div class="form-container">
+      <form method="post" action="/">
+        <label>Podaj oczekiwany rozmiar danych</label>
+        <input type="number" name='size' required='true'>
+        <input type="submit" value="pobierz dane">
+      </form>
+    </div>
   </section>
 </body>
 </html>
