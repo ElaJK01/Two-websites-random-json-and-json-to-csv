@@ -77,7 +77,14 @@ h1 {
   
 }
 
-.checkbox:hover input ~ .checkmark {
+.regular-checkbox {
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	display: inline-block;
+}
+
+
+.checkbox input label:hover  {
   background-color:  rgb(77, 16, 16);
 } 
 
@@ -111,7 +118,6 @@ input {
 
 form {
   display: inline-block;
-  
 }
 
 form input, label {

@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 
 const app = express();
 const port = 5000;
@@ -7,7 +8,7 @@ const lib = require('../lib');
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
-app.use(express.static(__dirname + '/style'));
+app.use(express.static(`${__dirname}/style`));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,7 +22,12 @@ app.post('/', async (req, res) => {
   const fields = ['_type', '_id', 'name', 'type', 'geo_position.latitude', 'geo_position.longitude'];
   const data = await lib.getData(size);
   const csv = await lib.dataToCsv(data, fields);
-  return res.send(csv);
+  const path = `./downloads/file${Date.now()}.csv`;
+  fs.writeFile(path, csv, (err) => {
+    if (err) { throw err; } else {
+      return res.download(path);
+    }
+  });
 });
 
 app.get('/customdata', (req, res) => {
@@ -35,7 +41,12 @@ app.post('/customdata', async (req, res) => {
   const dataList = makeList(customData);
   const data = await lib.getData(size);
   const csv = await lib.dataToCsv(data, dataList);
-  return res.send(csv);
+  const path = `./downloads/file${Date.now()}.csv`;
+  fs.writeFile(path, csv, (err) => {
+    if (err) { throw err; } else {
+      return res.download(path);
+    }
+  });
 });
 
 app.listen(port, () => {
