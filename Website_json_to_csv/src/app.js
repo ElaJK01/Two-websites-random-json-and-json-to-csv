@@ -19,10 +19,13 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
   const { size } = req.body;
+  if (!size.trim().length > 0) {
+    return res.send('Wypełnij pooprawnie dane');
+  }
   const fields = ['_type', '_id', 'name', 'type', 'geo_position.latitude', 'geo_position.longitude'];
   const data = await lib.getData(size);
   if (data === undefined) {
-    return res.sendStatus(503)
+    return res.sendStatus(503);
   }
   const csv = await lib.dataToCsv(data, fields);
   const path = `./downloads/file${Date.now()}.csv`;
@@ -39,12 +42,15 @@ app.get('/customdata', (req, res) => {
 
 app.post('/customdata', async (req, res) => {
   const { size } = req.body;
+  if (!size.trim().length > 0) {
+    return res.send('Wypełnij pooprawnie dane');
+  }
   const { customData } = req.body;
   const makeList = (v) => [].concat(v).map((data) => data);
   const dataList = makeList(customData);
   const data = await lib.getData(size);
   if (data === undefined) {
-    return res.sendStatus(503)
+    return res.sendStatus(503);
   }
   const csv = await lib.dataToCsv(data, dataList);
   const path = `./downloads/file${Date.now()}.csv`;
@@ -52,8 +58,7 @@ app.post('/customdata', async (req, res) => {
     if (err) { throw err; } else {
       return res.download(path);
     }
-  })
-
+  });
 });
 
 app.listen(port, () => {
