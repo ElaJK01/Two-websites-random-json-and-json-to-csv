@@ -21,6 +21,9 @@ app.post('/', async (req, res) => {
   const { size } = req.body;
   const fields = ['_type', '_id', 'name', 'type', 'geo_position.latitude', 'geo_position.longitude'];
   const data = await lib.getData(size);
+  if (data === undefined) {
+    return res.sendStatus(503)
+  }
   const csv = await lib.dataToCsv(data, fields);
   const path = `./downloads/file${Date.now()}.csv`;
   fs.writeFile(path, csv, (err) => {
@@ -40,13 +43,17 @@ app.post('/customdata', async (req, res) => {
   const makeList = (v) => [].concat(v).map((data) => data);
   const dataList = makeList(customData);
   const data = await lib.getData(size);
+  if (data === undefined) {
+    return res.sendStatus(503)
+  }
   const csv = await lib.dataToCsv(data, dataList);
   const path = `./downloads/file${Date.now()}.csv`;
   fs.writeFile(path, csv, (err) => {
     if (err) { throw err; } else {
       return res.download(path);
     }
-  });
+  })
+
 });
 
 app.listen(port, () => {
