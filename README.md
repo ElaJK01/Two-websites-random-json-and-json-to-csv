@@ -7,7 +7,7 @@ Use dummy-json to create random data in json format.
 
 #### Website json to csv:
 Use json2csv to convert downloaded data (from Website random json) to csv format.
-User can choose the type of data and their size. 
+User can choose the type of data and their size and download it as csv file.
 
 #### Used technologies: 
 * JavaScript, 
